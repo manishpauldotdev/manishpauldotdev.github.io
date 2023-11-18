@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:manishpauldotdev/utils/colors.dart';
+import 'package:manishpauldotdev/utils/scale_text.dart';
 import 'package:manishpauldotdev/widgets/highlighted_box.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -56,19 +58,30 @@ class HomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.max,
                     children: [
-                      const Text(
+                      Text(
                         'KOI AGAR "FLUTTER" BOLE',
-                        style: TextStyle(
+                        textScaleFactor: ScaleText.textScaleFactor(context),
+                        style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 50,
+                          fontSize: 28,
                         ),
                       ),
-                      const Text(
-                        'AAP MANISH SAMAJH LENA',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 50,
-                        ),
+                      Row(
+                        children: [
+                          Text(
+                            'AAP MANISH SAMAJH LENA',
+                            textScaleFactor: ScaleText.textScaleFactor(context),
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 24,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          SvgPicture.asset(
+                            'assets/images/smile-emoji.svg',
+                            width: 35,
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 20),
                       Row(
