@@ -3,11 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:manishpauldotdev/utils/colors.dart';
 import 'package:manishpauldotdev/utils/scale_text.dart';
-import 'package:manishpauldotdev/widgets/highlighted_box.dart';
+import 'package:manishpauldotdev/widgets/option.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.sizeOf(context).width;
@@ -34,9 +39,10 @@ class HomeScreen extends StatelessWidget {
                             width: deviceWidth * 0.15,
                             height: deviceHeight * 0.4,
                             decoration: BoxDecoration(
-                                color: const Color(
-                                    AppColors.sideMenuBackgroundColor),
-                                borderRadius: BorderRadius.circular(15)),
+                              color: const Color(
+                                  AppColors.sideMenuBackgroundColor),
+                              borderRadius: BorderRadius.circular(15),
+                            ),
                           ),
                         ),
                       ),
@@ -60,7 +66,9 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       Text(
                         'KOI AGAR "FLUTTER" BOLE',
-                        textScaleFactor: ScaleText.textScaleFactor(context),
+                        textScaler: TextScaler.linear(
+                          ScaleText.textScaleFactor(context),
+                        ),
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 28,
@@ -70,7 +78,9 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           Text(
                             'AAP MANISH SAMAJH LENA',
-                            textScaleFactor: ScaleText.textScaleFactor(context),
+                            textScaler: TextScaler.linear(
+                              ScaleText.textScaleFactor(context),
+                            ),
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 24,
@@ -85,86 +95,28 @@ class HomeScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       Row(
-                        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              HighlightedBox(
-                                  deviceHeight: deviceHeight,
-                                  imagePath: 'assets/images/rocket.svg'),
-                              SizedBox(
-                                height: deviceHeight * 0.01,
-                              ),
-                              const Text(
-                                'PROJECTS',
-                                style: TextStyle(
-                                  color: Color(
-                                    AppColors.textColor,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Option(
+                            deviceHeight: deviceHeight,
+                            imagePath: 'assets/images/rocket.svg',
+                            optionName: 'PROJECTS',
                           ),
                           const SizedBox(width: 20),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              HighlightedBox(
-                                  deviceHeight: deviceHeight,
-                                  imagePath: 'assets/images/review.svg'),
-                              SizedBox(
-                                height: deviceHeight * 0.01,
-                              ),
-                              const Text(
-                                'REVIEWS',
-                                style: TextStyle(
-                                  color: Color(
-                                    AppColors.textColor,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Option(
+                              deviceHeight: deviceHeight,
+                              imagePath: 'assets/images/review.svg',
+                              optionName: 'REVIEWS'),
+                          const SizedBox(width: 20),
+                          Option(
+                            deviceHeight: deviceHeight,
+                            imagePath: 'assets/images/blog.svg',
+                            optionName: 'BLOGS',
                           ),
                           const SizedBox(width: 20),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              HighlightedBox(
-                                  deviceHeight: deviceHeight,
-                                  imagePath: 'assets/images/blog.svg'),
-                              SizedBox(
-                                height: deviceHeight * 0.01,
-                              ),
-                              const Text(
-                                'BLOGS',
-                                style: TextStyle(
-                                  color: Color(
-                                    AppColors.textColor,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                          const SizedBox(width: 20),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              HighlightedBox(
-                                  deviceHeight: deviceHeight,
-                                  imagePath: 'assets/images/contact.svg'),
-                              SizedBox(
-                                height: deviceHeight * 0.01,
-                              ),
-                              const Text(
-                                'CONTACT',
-                                style: TextStyle(
-                                  color: Color(
-                                    AppColors.textColor,
-                                  ),
-                                ),
-                              ),
-                            ],
+                          Option(
+                            deviceHeight: deviceHeight,
+                            imagePath: 'assets/images/contact.svg',
+                            optionName: 'CONTACT',
                           ),
                         ],
                       ),
