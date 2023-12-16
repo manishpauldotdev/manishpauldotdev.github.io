@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:manishpauldotdev/utils/colors.dart';
 import 'package:manishpauldotdev/utils/scale_text.dart';
+import 'package:manishpauldotdev/widgets/hover.dart';
 import 'package:manishpauldotdev/widgets/option.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -96,27 +97,35 @@ class _HomeScreenState extends State<HomeScreen> {
                       const SizedBox(height: 20),
                       Row(
                         children: [
-                          Option(
-                            deviceHeight: deviceHeight,
-                            imagePath: 'assets/images/rocket.svg',
-                            optionName: 'PROJECTS',
-                          ),
-                          const SizedBox(width: 20),
-                          Option(
+                          Hover(
+                            child: Option(
                               deviceHeight: deviceHeight,
-                              imagePath: 'assets/images/review.svg',
-                              optionName: 'REVIEWS'),
-                          const SizedBox(width: 20),
-                          Option(
-                            deviceHeight: deviceHeight,
-                            imagePath: 'assets/images/blog.svg',
-                            optionName: 'BLOGS',
+                              imagePath: 'assets/images/rocket.svg',
+                              optionName: 'PROJECTS',
+                            ),
                           ),
                           const SizedBox(width: 20),
-                          Option(
-                            deviceHeight: deviceHeight,
-                            imagePath: 'assets/images/contact.svg',
-                            optionName: 'CONTACT',
+                          Hover(
+                            child: Option(
+                                deviceHeight: deviceHeight,
+                                imagePath: 'assets/images/review.svg',
+                                optionName: 'REVIEWS'),
+                          ),
+                          const SizedBox(width: 20),
+                          Hover(
+                            child: Option(
+                              deviceHeight: deviceHeight,
+                              imagePath: 'assets/images/blog.svg',
+                              optionName: 'BLOGS',
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                          Hover(
+                            child: Option(
+                              deviceHeight: deviceHeight,
+                              imagePath: 'assets/images/contact.svg',
+                              optionName: 'CONTACT',
+                            ),
                           ),
                         ],
                       ),
